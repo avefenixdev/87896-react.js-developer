@@ -1,11 +1,16 @@
 //rafce
 
+import navItems from "../constants/nav-items"
+
 const Navbar = () => {
   return (
     <nav>
-        <a href="">Inicio</a>
-        <a href="">Productos</a>
-        <a href="">Contacto</a>
+
+      {
+        navItems.map((item) => (
+          <a href={item.ruta} key={item.id}>{item.texto}</a>
+        ))
+      }
     </nav>
   )
 }
