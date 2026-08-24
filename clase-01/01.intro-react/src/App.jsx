@@ -1,5 +1,8 @@
+import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
+import ProductoItem from "./components/ProductoItem"
 import TituloPrincipal from "./components/TituloPrincipal"
+import TituloSecundario from "./components/TituloSecundario"
 
 
 function App() {
@@ -13,21 +16,16 @@ function App() {
       </header>
 
       <main>
-        <h2>Productos</h2>
+        <TituloSecundario />
 
-        <div>
-          <h3>Notebook</h3>
-          <p>Precio: $1000</p>
-        </div>
+        <ProductoItem />
         <div>
           <h3>Celular</h3>
           <p>Precio: $800</p>
         </div>
       </main>
 
-      <footer>
-        Todos los derechos reservados
-      </footer>
+    <Footer />
 
     </div>
 
