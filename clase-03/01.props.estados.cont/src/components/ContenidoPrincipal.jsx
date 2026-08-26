@@ -1,0 +1,49 @@
+import productos from "../constants/productos"
+import Contador from "./estados/Contador"
+import Formulario from "./estados/Formulario"
+import FormularioSubmit from "./estados/FormularioSubmit"
+import RenderizadoCondicional from "./estados/RenderizadoCondicional"
+
+import ProductoCard from "./ProductoCard"
+
+
+const ContenidoPrincipal = () => {
+
+  return (
+    <main className="mx-auto max-w-6xl px-6 py-12">
+
+        <Contador valorInicial={22} />
+        <Contador valorInicial={44} />
+       {/*  <Contador valorInicial={111} />
+        <Contador valorInicial={444} /> */}
+
+        <RenderizadoCondicional />
+
+        <Formulario />
+
+        <FormularioSubmit />
+
+        <h2 className="mb-10 text-center text-3xl font-black tracking-tight text-white md:text-4xl">
+          Productos
+          <span className="bg-linear-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+            destacados
+          </span>
+        </h2>
+
+        {/* article>h3{Notebook}+p{Notebook para desarrollo}+p{Precio: $1200}+button{Comprar} */}
+        {/* <ProductoCard data={productos[0]} />
+        <ProductoCard data={productos[1]} />
+        <ProductoCard data={productos[2]} /> */}
+
+        {
+            productos.map((producto) => (
+                <ProductoCard data={producto} key={producto.id} />      
+            ))  
+        }
+      
+      </main>
+  )
+}
+
+export default ContenidoPrincipal
+
