@@ -7,10 +7,14 @@ import Productos from './pages/Productos.jsx'
 import Nosotros from './pages/Nosotros.jsx'
 import Contacto from './pages/Contacto.jsx'
 import NoEncontrado from './pages/NoEncontrado.jsx'
+import Navbar from './components/Navbar.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+
+      {/* Lo que coloque dentro de Browser Router va a ser visible siempre */}
+      <Navbar />
 
       <Routes> {/* Switch */}
 
