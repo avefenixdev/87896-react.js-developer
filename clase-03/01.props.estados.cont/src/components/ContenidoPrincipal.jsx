@@ -3,6 +3,8 @@ import Contador from "./estados/Contador"
 import Formulario from "./estados/Formulario"
 import FormularioSubmit from "./estados/FormularioSubmit"
 import RenderizadoCondicional from "./estados/RenderizadoCondicional"
+import Saludo from "./estados/Saludo"
+import SaludoJudith from "./estados/SaludoJudith"
 
 import ProductoCard from "./ProductoCard"
 
@@ -22,6 +24,9 @@ const ContenidoPrincipal = () => {
         <Formulario />
 
         <FormularioSubmit />
+
+        <Saludo />
+        <SaludoJudith />
 
         <h2 className="mb-10 text-center text-3xl font-black tracking-tight text-white md:text-4xl">
           Productos
