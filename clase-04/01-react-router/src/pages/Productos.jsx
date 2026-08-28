@@ -14,7 +14,6 @@ const Productos = () => {
             ))
           
           }
-
         </ul>       
         
         
