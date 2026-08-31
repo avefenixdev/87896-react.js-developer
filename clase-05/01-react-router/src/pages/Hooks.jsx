@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 const Hooks = () => {
 
@@ -68,11 +68,46 @@ const Hooks = () => {
         }, [])
         // Resultado que debería ver. Cuando el componente aparece en pantalla se dispara el callback (acción secundaria)
 
+        // ! DESMONTAJE (3)
+        // * muere -> 3. Desmonaje -> El componente muere. Se destruye -> Desaparece de la pantalla.
+        useEffect(() => {
+            return () => {
+                console.log('Componente desaparece de pantalla')
+                console.log('El array está vacío y el componente desaparece de pantalla (desmonta)')
+            }
+        }, [])
 
+        // ! ACTUALIZACION (2)
+        // * vive -> 2. Actualización -> Se actualiza... (Props, o estado)
+
+        const [contador, setContador] = useState(55)
+        // const [claseColor, setClaseColor] = useState('text-blue-500')
+
+        useEffect(() => {
+            console.log('Se modifico el estado contador')
+
+
+            if ( contador === 60 ) {
+                console.log('Supero el valor de 60')
+                
+            }
+
+        }, [contador])
+        
 
 
   return (
-    <div>Hooks</div>
+    <>
+        <h1 className="text-2xl text-indigo-600 text-center">Efecto Secundario</h1>
+
+        <h2 className={`text-xl ${claseColor}`}>Contador: {contador}</h2>
+        <button 
+            className="bg-amber-600 hover:bg-amber-800 cursor-pointer rounded py-2 px-4 text-white"
+            onClick={() => setContador(contador + 1)}
+        >
+            Incrementar
+        </button>
+    </>
   )
 }
 
