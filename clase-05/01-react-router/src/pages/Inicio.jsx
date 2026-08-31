@@ -41,7 +41,7 @@ const Inicio = () => {
         <hr />
 
         <Contenedor />
-
+        
     </>
   )
 }
