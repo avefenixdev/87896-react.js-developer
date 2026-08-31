@@ -10,6 +10,7 @@ import NoEncontrado from './pages/NoEncontrado.jsx'
 import Navbar from './components/Navbar.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import ProductosDetalle from './pages/ProductosDetalle.jsx'
+import Hooks from './pages/Hooks.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')).render(
             <Route path='/productos' element={<Productos />} /> {/* case */}
             <Route path='/productos/:id' element={<ProductosDetalle />} /> {/* case */}
             <Route path='/nosotros' element={<Nosotros />} /> {/* case */}
+            <Route path='/hooks' element={<Hooks />} /> {/* case */}
             <Route path='/contacto' element={<Contacto />} /> {/* case */}
             <Route path='/dashboard' element={<Dashboard />} /> {/* case */}
             <Route path='*' element={<NoEncontrado />} /> {/* default */}
