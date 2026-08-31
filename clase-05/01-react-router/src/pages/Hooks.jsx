@@ -2,6 +2,10 @@ import { useEffect, useState } from "react"
 
 const Hooks = () => {
 
+    useEffect(() => {
+        document.title = 'Educación IT - Hooks (Ganchos)'
+    }, [])
+
     /*
         ! REGLAS CLAVES SOBRE LOS HOOKS
 
@@ -81,21 +85,18 @@ const Hooks = () => {
         // * vive -> 2. Actualización -> Se actualiza... (Props, o estado)
 
         const [contador, setContador] = useState(55)
-        // const [claseColor, setClaseColor] = useState('text-blue-500')
+        const [claseColor, setClaseColor] = useState('text-blue-500')
 
         useEffect(() => {
             console.log('Se modifico el estado contador')
 
-
             if ( contador === 60 ) {
                 console.log('Supero el valor de 60')
-                
+                // setClaseColor('text-yellow-500')
             }
 
         }, [contador])
         
-
-
   return (
     <>
         <h1 className="text-2xl text-indigo-600 text-center">Efecto Secundario</h1>

@@ -1,7 +1,14 @@
 import productos from "../constants/productos"
 import ProductoItem from "../components/ProductoItem"
+import { useEffect } from "react"
 
 const Productos = () => {
+  
+  // Cuando el componente se monte, el title va a cambiar.
+  useEffect(() => {
+    document.title = 'Educación IT - Productos'    
+  }, [])
+  
   return (
     <>
         <h1>Productos</h1>

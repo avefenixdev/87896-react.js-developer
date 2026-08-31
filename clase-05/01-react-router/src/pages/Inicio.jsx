@@ -1,9 +1,15 @@
 import { Link, useNavigate } from "react-router"
 import Contenedor from "../components/composicion/Contenedor"
+import { useEffect } from "react"
 
 const Inicio = () => {
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    document.title = 'Educación IT - Inicio'
+  }, [])
+  
 
   const ingresar = () => {
     // Lógica de logueo -> Se logueó correctamente | No se logueó correctamente
