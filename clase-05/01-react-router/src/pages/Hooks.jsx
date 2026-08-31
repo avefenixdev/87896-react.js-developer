@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import ContadorReducer from "../components/reducer/ContadorReducer"
 
 const Hooks = () => {
 
@@ -108,6 +109,12 @@ const Hooks = () => {
         >
             Incrementar
         </button>
+
+        <hr />
+
+        <h2>Contador Reducer</h2>
+
+        <ContadorReducer />
     </>
   )
 }
