@@ -1,3 +1,4 @@
+import { useReducer } from "react"
 
 const ContadorReducer = () => {
 
@@ -6,7 +7,7 @@ const ContadorReducer = () => {
    // useReducer() <--- es una función
    // useReducer(reducer, valorInicialObjeto) <--- recibe 2 argumentos
    // useReducer(() => {}, { contador: 22 }) <--- recibe 2 argumentos
-   //              ⬆️⬆️ <--- una función pura
+   //              ⬆️⬆️ <--- una función pura (reducer)
 
    // Una función pura, no modifica internamente el valor de las variables
 
@@ -42,6 +43,44 @@ const ContadorReducer = () => {
    }
 
    //funcionImpura()
+
+   // useReducer retorna una array de 2 posiciones
+   // const [estado, dispatch] = useReducer(() => {}, { contador: 22 })
+   // 1. estado -> { contador: 22 }
+   // 2. dispatch -> una referencia de una función -> dispatch()
+
+   // Acciones -> Incrementar | Descrementarse | Reiniciar
+   // El reducer deber ser puro
+   const contadorReducer = (estado, accion) => { // estado = {} | accion = {}
+    console.log(estado) // { contador: 22 }
+    console.log(accion) // { accion.type = 'incrementar' }
+
+    switch (accion.type) {
+        case 'incrementar':
+            // estado.contador = estado.contador + 1
+            return { // clonar el estado
+                ...estado, // { contador: 22 }
+                contador: estado.contador + 1
+            }
+            
+        case 'decrementar':
+            
+            break;
+    
+        default:
+            console.log('Se intento hacer una acción que no existe...')
+            return estado
+    }
+
+   }
+
+   const [estado, dispatch] = useReducer(contadorReducer, { contador : 22 })
+
+   // console.log(estado) // estado ->  { contador: 22 }
+   //console.log(dispatch) // -> una referencia de una función
+
+   
+
 
   return (
     <div>ContadorReducer</div>
