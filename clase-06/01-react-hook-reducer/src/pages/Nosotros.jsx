@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import Padre from "../components/elevacion-estado/Padre"
 
 const Nosotros = () => {
 
@@ -11,6 +12,9 @@ const Nosotros = () => {
     <>
         <h1>Nosotros</h1>
         <p>¿Quiénes somos?</p>
+        <hr />
+
+        <Padre />
     </>
   )
 }
