@@ -15,7 +15,7 @@ const productos = [
         id: 3,
         nombre: 'Televisor',
         categoria: 'Electro',
-        precio: 789
+        precio: 23789
     },
     {
         id: 4,
