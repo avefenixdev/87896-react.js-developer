@@ -2,9 +2,9 @@
 import TablaFila from "./TablaFila"
 
 
-const Tabla = ({ products }) => {
+const Tabla = ({ products, deleteProducto }) => {
 
-
+  //console.log(deleteProducto)
 
   return (
     <>
@@ -23,7 +23,7 @@ const Tabla = ({ products }) => {
 
                   {
                     products.map(product => (
-                      <TablaFila key={product.id} product={product} />
+                      <TablaFila key={product.id} product={product} deleteProducto={deleteProducto} />
                     ))
                   }
 

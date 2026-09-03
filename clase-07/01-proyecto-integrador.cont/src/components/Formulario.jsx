@@ -4,8 +4,8 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
 
   console.log(createProducto)
 
-  // Formularios controlados <-------- Recomendable
-  // Formularios no controlados (useRef) <---- Almacena la referencia de un nodo html
+
+  // ! Formularios no controlados (useRef) <---- Almacena la referencia de un nodo html
 
   /* const nombreRef = useRef()
   const categoriaRef = useRef() */
@@ -39,6 +39,8 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
     const nuevoValor = e.target.value
     setNombre(nuevoValor)
   } */
+
+  // ! Formularios controlados <-------- Recomendable
 
     const [form, setForm] = useState({
       id: null,
