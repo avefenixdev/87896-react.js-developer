@@ -42,12 +42,14 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
 
   // ! Formularios controlados <-------- Recomendable
 
-    const [form, setForm] = useState({
+  const initialForm = {
       id: null,
       nombre: '',
       categoria: '',
       precio: ''
-    })
+    }
+
+    const [form, setForm] = useState(initialForm)
 
     //console.log(form)
 
@@ -55,7 +57,7 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
       e.preventDefault()
 
       createProducto(form) // El producto que quiero agregar a mi estado productos
-
+      handleReiniciar()
     }
 
     const handleChange = (e) => {
@@ -73,7 +75,9 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
       setForm(nuevoForm)
     }
 
-
+    const handleReiniciar = () => {
+      setForm(initialForm)
+    }
 
 
 
@@ -117,7 +121,7 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
         {/* Botones */}
         <div className="mb-4 flex gap-3">
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">Cargar o Editar</button>
-          <button type="reset" className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 cursor-pointer">Reiniciar</button>
+          <button type="reset" onClick={handleReiniciar} className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 cursor-pointer">Reiniciar</button>
         </div>
       </form>
     </>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import Swal from 'sweetalert2'
 
 
@@ -35,9 +36,15 @@ const TablaFila = ({product, deleteProducto}) => { // props = { product }
        <td className="px-4 py-3">{product.categoria}</td>
        <td className="px-4 py-3">${product.precio}</td>
        <td className="px-4 py-3 flex gap-2">
-        <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm">Ver</button>
+        <Link
+          to={`/productos/detalle/${product.id}`}
+          className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm">
+            Ver
+        </Link>
         <button className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Editar</button>
-        <button onClick={() => handleBorrar(product.id)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Borrar</button>
+        <button
+          onClick={() => handleBorrar(product.id)}
+          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Borrar</button>
        </td>
     </tr>
   )
