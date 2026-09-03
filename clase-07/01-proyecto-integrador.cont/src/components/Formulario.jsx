@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 
 const Formulario = ({ createProducto }) => { // props = { createProducto }
 
@@ -28,8 +28,16 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
 
   } */
 
+  const [nombre, setNombre] = useState('')
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log(nombre)
+  }
+
+  const handleChange = (e) => {
+    const nuevoValor = e.target.value
+    setNombre(nuevoValor)
   }
 
   return (
@@ -39,7 +47,7 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
         {/* Campo nombre */}
         <div className="mb-4">
           <label htmlFor="lbl-nombre" className="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-          <input type="text"/*  ref={nombreRef} */ name="nombre" id="lbl-nombre" className="w-full px-3 py-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <input type="text" value={nombre} onChange={handleChange}/*  ref={nombreRef} */ name="nombre" id="lbl-nombre" className="w-full px-3 py-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
         {/* Campo categoría */}
         <div className="mb-4">
