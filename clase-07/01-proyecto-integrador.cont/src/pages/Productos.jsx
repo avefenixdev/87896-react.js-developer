@@ -27,6 +27,11 @@ const Productos = () => {
   const deleteProducto = (id) => {
     console.log(id)
 
+    const nuevoEstadoProductos = products.filter(product => product.id !== id) // Se crea un nuevo array, con tdos los productos menos el que quiero eliminar
+
+    console.log(nuevoEstadoProductos)
+
+    setProducts(nuevoEstadoProductos)
   }
 
   return (

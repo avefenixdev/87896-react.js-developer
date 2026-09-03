@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 
 const Formulario = ({ createProducto }) => { // props = { createProducto }
 
-  console.log(createProducto)
+  //console.log(createProducto)
 
 
   // ! Formularios no controlados (useRef) <---- Almacena la referencia de un nodo html
@@ -49,7 +49,7 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
       precio: ''
     })
 
-    console.log(form)
+    //console.log(form)
 
     const handleSubmit = (e) => {
       e.preventDefault()

@@ -1,10 +1,32 @@
+import Swal from 'sweetalert2'
 
 
 const TablaFila = ({product, deleteProducto}) => { // props = { product }
-  console.log(product)
+  //console.log(product)
 
   const handleBorrar = (id) => {
-    deleteProducto(id)
+
+    Swal.fire({
+      title: "¿Estás seguro de que querés borrar el producto?",
+      text: "No vas a poder recuperar el producto",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si papá, borralo!",
+      cancelButtonText: "Nooooo, no me quemes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+          deleteProducto(id)
+          Swal.fire({
+            title: "¡Borrado!",
+            text: "El producto fue borrado",
+            icon: "success"
+          });
+      }
+    });
+
+
   }
 
   return (
