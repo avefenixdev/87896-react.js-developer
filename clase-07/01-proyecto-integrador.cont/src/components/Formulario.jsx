@@ -28,17 +28,52 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
 
   } */
 
-  const [nombre, setNombre] = useState('')
+  /* const [nombre, setNombre] = useState('') */
 
-  const handleSubmit = (e) => {
+   /*  const handleSubmitNombre = (e) => {
     e.preventDefault()
     console.log(nombre)
-  }
+  } */
 
-  const handleChange = (e) => {
+ /*  const handleChangeNombre = (e) => {
     const nuevoValor = e.target.value
     setNombre(nuevoValor)
-  }
+  } */
+
+    const [form, setForm] = useState({
+      id: null,
+      nombre: '',
+      categoria: '',
+      precio: ''
+    })
+
+    console.log(form)
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+
+      createProducto(form) // El producto que quiero agregar a mi estado productos
+
+    }
+
+    const handleChange = (e) => {
+
+      console.log(e.target.value)
+      console.log(e.target.name)
+
+      // debugger
+
+      const nuevoForm = {
+        ...form,
+        [e.target.name]: e.target.value
+      }
+
+      setForm(nuevoForm)
+    }
+
+
+
+
 
   return (
      <>
@@ -47,17 +82,35 @@ const Formulario = ({ createProducto }) => { // props = { createProducto }
         {/* Campo nombre */}
         <div className="mb-4">
           <label htmlFor="lbl-nombre" className="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-          <input type="text" value={nombre} onChange={handleChange}/*  ref={nombreRef} */ name="nombre" id="lbl-nombre" className="w-full px-3 py-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <input
+            type="text"
+            value={form.nombre}
+            onChange={handleChange}/*  ref={nombreRef} */
+            name="nombre"
+            id="lbl-nombre"
+            className="w-full px-3 py-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
         {/* Campo categoría */}
         <div className="mb-4">
           <label htmlFor="lbl-categoria"  className="block text-sm font-medium text-gray-700 mb-1">Categoría</label>
-          <input type="text"/*  ref={categoriaRef} */ name="categoria" id="lbl-categoria" className="w-full px-3 py-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <input
+            type="text"
+            value={form.categoria}/*  ref={categoriaRef} */
+            onChange={handleChange}
+            name="categoria"
+            id="lbl-categoria"
+            className="w-full px-3 py-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
         {/* Campo precio */}
         <div className="mb-4">
           <label htmlFor="lbl-precio"  className="block text-sm font-medium text-gray-700 mb-1">Precio</label>
-          <input type="text" id="lbl-precio" className="w-full px-3 py-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          <input
+            type="text"
+            value={form.precio}
+            onChange={handleChange}
+            id="lbl-precio"
+            name="precio"
+            className="w-full px-3 py-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
         {/* Botones */}
         <div className="mb-4 flex gap-3">

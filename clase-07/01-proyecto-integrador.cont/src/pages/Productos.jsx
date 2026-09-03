@@ -9,8 +9,13 @@ const Productos = () => {
 
   // CRUD -> Create | Read | Update | Delete
   // ! CREATE
-  const createProducto = () => {
+  const createProducto = (nuevoProducto) => {
+    console.log(nuevoProducto) // <--- llega desde el formulario de carga
 
+    //products.push(nuevoProducto) // ! NO HACER --> No hacer modificación directa del estado
+
+    const nuevoEstadoProductos = [...products, nuevoProducto]
+    setProducts(nuevoEstadoProductos)
   }
   // ! UPDATE
   const updateProducto = () => {
