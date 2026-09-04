@@ -1,8 +1,13 @@
 import { Link, useNavigate } from "react-router"
 import Contenedor from "../components/composicion/Contenedor"
 import useTitulo from "../hooks/useTitulo"
+import { useContext } from "react"
+import ContadorContext from "../contexts/ContadorContext"
 
 const Inicio = () => {
+
+  const obj = useContext(ContadorContext)
+  console.log(obj)
 
   const navigate = useNavigate()
 

@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import TemaContext from "../contexts/TemaContext"
 
 const Contador = ({valorInicial}) => {
 
     const [contador, setContador] = useState(valorInicial)
-
+    const {darkMode } = useContext(TemaContext)
 
     const handlerIncrementar = () => {
         setContador(contador + 1)
@@ -16,7 +17,7 @@ const Contador = ({valorInicial}) => {
     }
 
   return (
-    <>
+    <div className={`${darkMode ? 'text-white bg-black' : 'bg-gray-200 text-black'}`}>
         <h2 className="text-3xl mb-3">Contador: <span className="text-red-500">{contador}</span></h2>
        
         <button 
@@ -34,7 +35,7 @@ const Contador = ({valorInicial}) => {
             className="bg-red-500 hover:bg-red-700 py-2 px-4 cursor-pointer text-white rounded">
                 Reiniciar
         </button>
-    </>
+    </div>
   )
 }
 

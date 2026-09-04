@@ -1,12 +1,18 @@
 import { NavLink } from "react-router"
 import navItems from "../constants/nav-items"
+import { useContext } from "react"
+import TemaContext from "../contexts/TemaContext"
 
 const Navbar = () => {
 
-  const colorearLinks = ({ isActive }) => isActive ? { color: 'red' } : { color: 'white' }
+  const { darkMode } = useContext(TemaContext)
+
+  const setColor = () => darkMode ? 'white' : 'black'
+
+  const colorearLinks = ({ isActive }) => isActive ? { color: 'red' } : { color: setColor() } 
 
   return (
-    <nav className="flex items-center justify-center gap-1 border-b border-violet-500/20 bg-slate-950 p-4">
+    <nav className={`flex items-center justify-center gap-1 border-b border-violet-500/20 ${darkMode ? 'bg-slate-950' : 'bg-gray-200 text-black'} p-4`}>
      
 
       {

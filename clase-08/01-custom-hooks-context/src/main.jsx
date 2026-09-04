@@ -4,35 +4,39 @@ import './index.css'
 import { BrowserRouter } from 'react-router'
 import Rutas from './routes/Rutas.jsx'
 import Navbar from './components/Navbar.jsx'
+import ProveedorGeneral from './components/ProveedorGeneral.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
+    <StrictMode>
+      <ProveedorGeneral>
+        <BrowserRouter>
 
-      {/* Lo que coloque dentro de Browser Router va a ser visible siempre */}
-      <Navbar />
+          {/* Lo que coloque dentro de Browser Router va a ser visible siempre */}
+          <Navbar />
 
-      <main className="container mx-auto">
+          <main className="container mx-auto">
 
-        <Rutas />
+            <Rutas />
 
-        {/* <Routes> 
+            {/* <Routes> 
 
-            <Route path='/' element={<Inicio />} />
-            <Route path='/productos' element={<Productos />} />
-            <Route path='/productos/:id' element={<ProductosDetalle />} />
-            <Route path='/nosotros' element={<Nosotros />} />
-            <Route path='/custom-hooks' element={<CustomHooks />} />
-            <Route path='/contexto' element={<Contexto />} /> 
-            <Route path='/hooks' element={<Hooks />} /> 
-            <Route path='/contacto' element={<Contacto />} /> 
-            <Route path='/dashboard' element={<Dashboard />} /> 
-            <Route path='*' element={<NoEncontrado />} /> 
+                <Route path='/' element={<Inicio />} />
+                <Route path='/productos' element={<Productos />} />
+                <Route path='/productos/:id' element={<ProductosDetalle />} />
+                <Route path='/nosotros' element={<Nosotros />} />
+                <Route path='/custom-hooks' element={<CustomHooks />} />
+                <Route path='/contexto' element={<Contexto />} /> 
+                <Route path='/hooks' element={<Hooks />} /> 
+                <Route path='/contacto' element={<Contacto />} /> 
+                <Route path='/dashboard' element={<Dashboard />} /> 
+                <Route path='*' element={<NoEncontrado />} /> 
 
-        </Routes> */}
-      </main>
+            </Routes> */}
+          </main>
 
-    
-    </BrowserRouter>
-  </StrictMode>,
+        
+        </BrowserRouter>
+      </ProveedorGeneral>
+    </StrictMode>
 )
+
