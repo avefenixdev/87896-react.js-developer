@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import ContadorReducer from "../components/reducer/ContadorReducer"
+import useTitulo from "../hooks/useTitulo"
 
 const Hooks = () => {
 
-    useEffect(() => {
-        document.title = 'Educación IT - Hooks (Ganchos)'
-    }, [])
+    useTitulo('Hooks')
 
     /*
         ! REGLAS CLAVES SOBRE LOS HOOKS

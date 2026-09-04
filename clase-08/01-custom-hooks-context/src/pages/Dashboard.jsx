@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router"
+import useTitulo from "../hooks/useTitulo"
 
 const Dashboard = () => {
+
+    useTitulo('Dashboard')
 
     const navigate = useNavigate()
 

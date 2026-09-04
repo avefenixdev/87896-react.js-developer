@@ -1,14 +1,12 @@
 import { Link, useNavigate } from "react-router"
 import Contenedor from "../components/composicion/Contenedor"
-import { useEffect } from "react"
+import useTitulo from "../hooks/useTitulo"
 
 const Inicio = () => {
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    document.title = 'Educación IT - Inicio'
-  }, [])
+  useTitulo('Inicio')
   
 
   const ingresar = () => {

@@ -1,7 +1,12 @@
 import Contador from "../components/Contador"
 import ContadorHook from "../components/ContadorHook"
+import useTitulo from "../hooks/useTitulo"
 
 const CustomHooks = () => {
+
+  useTitulo('Custom Hooks')
+
+
   return (
     <>
       <h1>Custom Hooks (Ganchos personalizados)</h1>

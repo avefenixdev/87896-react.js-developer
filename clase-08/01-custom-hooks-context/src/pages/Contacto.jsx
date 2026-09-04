@@ -1,11 +1,8 @@
-import { useEffect } from "react"
+import useTitulo from "../hooks/useTitulo"
 
 const Contacto = () => {
 
-   useEffect(() => {
-      document.title = 'Educación IT - Contacto'
-   }, [])
-
+    useTitulo('Contacto')
 
   return (
     <>

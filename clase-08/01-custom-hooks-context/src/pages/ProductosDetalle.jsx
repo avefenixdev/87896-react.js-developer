@@ -1,8 +1,11 @@
 import { useLocation, useParams } from "react-router"
 import productos from "../constants/productos"
 import ProductoInfo from "../components/ProductoInfo"
+import useTitulo from "../hooks/useTitulo"
 
 const ProductosDetalle = () => {
+
+    useTitulo('Producto Detalle')
 
     // useParams: Este hook nos lee los parametros recibidos por la url
     const { id } = useParams()
