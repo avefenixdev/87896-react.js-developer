@@ -6,7 +6,6 @@ const CustomHooks = () => {
 
   useTitulo('Custom Hooks')
 
-
   return (
     <>
       <h1>Custom Hooks (Ganchos personalizados)</h1>

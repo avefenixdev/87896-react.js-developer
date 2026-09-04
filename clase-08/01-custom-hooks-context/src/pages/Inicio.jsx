@@ -8,7 +8,6 @@ const Inicio = () => {
 
   useTitulo('Inicio')
   
-
   const ingresar = () => {
     // Lógica de logueo -> Se logueó correctamente | No se logueó correctamente
     let isLogin = true
