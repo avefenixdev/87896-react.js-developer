@@ -1,11 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const url = import.meta.env.API_PRODUCTOS 
-
+const url = import.meta.env.VITE_API_PRODUCTOS 
+console.log(url)    
 const valorInicialEstadoProductos = {
-    productos: [], // productos obtenidos
+    productos: null, // productos obtenidos
     loading: false, // indica si estamos esperando una respuesta.
-    error: null // Si hay un error guardo el error
+    error: null, // Si hay un error guardo el error,
+    creating: false,
+    updating: false,
+    deleting: false
 }
 // Con createAsyncThunk creo la acción asincronica que va a ser capturada por el middleware Thunk
 export const getProductos = createAsyncThunk(
@@ -23,6 +26,26 @@ export const getProductos = createAsyncThunk(
     }
 )
 
+export const createProducto = createAsyncThunk(
+    "productos/createProducto",
+    async (nuevoProducto) => {
+        const config = {
+            method: 'POST',
+            headers: {
+                'Content-Type': "applicattion/json",
+                body: JSON.stringify(nuevoProducto)
+            }
+        }
+        const res = await fetch(url, config)
+
+        if (!res) {
+            throw new Error('No se pudo crear el producto')
+        }
+
+        return await res.json()
+    }
+)
+
 
 const productosSlice = createSlice({
     name: 'productos',
@@ -34,7 +57,6 @@ const productosSlice = createSlice({
                 getProductos.pending,
                 (estado) => {
                     estado.loading = true
-                    estado.error = null
                 }
             )
             .addCase(
@@ -48,6 +70,26 @@ const productosSlice = createSlice({
                 getProductos.rejected,
                 (estado, accion) => { // accion = { type, payload } 
                     estado.loading = false
+                    estado.error = accion.error.message
+                }
+            )
+            .addCase(
+                createProducto.pending,
+                (estado) => {
+                    estado.creating = true
+                }
+            )
+            .addCase(
+                createProducto.fulfilled,
+                (estado, accion) => { // accion = { type, payload } 
+                    estado.creating = false
+                    estado.productos.push(accion.payload)
+                }
+            )
+            .addCase(
+                createProducto.rejected,
+                (estado, accion) => { // accion = { type, payload } 
+                    estado.creating = false
                     estado.error = accion.error.message
                 }
             )
