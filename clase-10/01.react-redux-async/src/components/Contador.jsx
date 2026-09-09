@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { decrementar, incrementar, incrementarPorValor } from "../store/slices/contador/contador-slice"
+import { decrementar, incrementar, incrementarPorValor, reset } from "../store/slices/contador/contador-slice"
 
 const Contador = () => {
 
@@ -21,7 +21,11 @@ const Contador = () => {
     }
 
     const handleDecrementar = () => {
-      dispatch(decrementar( ))
+      dispatch(decrementar())
+    }
+
+    const handleResetear = () => {
+      dispatch(reset())
     }
 
   return (
@@ -42,9 +46,15 @@ const Contador = () => {
         </button>
         <button 
           onClick={() => handleIncrementarPorValor(55)}
-          className="bg-red-500 text-white rounded py-2 px-4 hover:bg-red-700 cursor-pointer"
+          className="bg-red-500 text-white rounded py-2 px-4 me-2 hover:bg-red-700 cursor-pointer"
         >
             Incrementar por favor
+        </button>
+         <button 
+          onClick={handleResetear}
+          className="bg-gray-500 text-white rounded py-2 px-4 hover:bg-gray-700 cursor-pointer"
+        >
+            Resetear
         </button>
     </div> 
   )
